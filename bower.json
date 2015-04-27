@@ -1,49 +1,51 @@
 {
-	"name": "ngEgg",
-	"version": "0.0.1",
-	"authors": [
-		"Paul Massey, paul.massey@scriptwerx.io, http://www.scriptwerx.io"
-	],
-	"description": "An AngularJS Directive implementation of egg.js by Mike Flynn",
-	"keywords": [
-		"ngEgg",
-		"AngularJS",
-		"Angular",
-		"Angular Easter Egg",
-		"egg.js",
-		"JavaScript",
-		"Component",
-		"Components",
-		"Scriptwerx",
-		"Genoveus"
-	],
-	"license": "http://opensource.org/licenses/MIT",
-	"homepage": "https://github.com/scriptwerx/ngEgg",
-	"ignore": [
-		".jshintrc",
-		".travis.yml",
-		".gitignore",
-		"package.json",
-		"gulpfile.js",
-		"*.iml",
-		"**/*.md",
-		"bin",
-		"docs",
-		"src",
-		"lib",
-		"test",
-		"node_modules",
-		"bower_components"
-	],
-	"main": [
-		"./release/angular-egg.js",
-		"./release/angular-egg.min.js",
-		"./release/angular-egg.min.js.map"
-	],
-	"dependencies": {
-		"angular": ">=1 <1.4.0"
-	},
-	"devDependencies": {
-		"angular-mocks": ">=1 <1.4.0"
-	}
+  "name": "angular-egg",
+  "version": "0.0.1",
+  "authors": [
+    "Paul Massey, paul.massey@scriptwerx.io, http://www.scriptwerx.io"
+  ],
+  "description": "An AngularJS Directive implementation of egg.js by Mike Flynn",
+  "keywords": [
+    "Angular Egg",
+    "ngEgg",
+    "AngularJS",
+    "Angular",
+    "Angular Easter Egg",
+    "egg.js",
+    "JavaScript",
+    "Component",
+    "Components",
+    "Scriptwerx",
+    "Genoveus"
+  ],
+  "license": "http://opensource.org/licenses/MIT",
+  "homepage": "https://github.com/scriptwerx/ngEgg",
+  "ignore": [
+    ".jshintrc",
+    ".travis.yml",
+    ".gitignore",
+    "package.json",
+    "gulpfile.js",
+    "*.iml",
+    "**/*.md",
+    "bin",
+    "docs",
+    "src",
+    "lib",
+    "test",
+    "node_modules",
+    "bower_components"
+  ],
+  "main": [
+    "./release/angular-egg.js",
+    "./release/angular-egg.min.js",
+    "./release/angular-egg.min.js.map"
+  ],
+  "dependencies": {
+    "angular": ">=1 <1.4.0"
+  },
+  "devDependencies": {
+    "angular-mocks": ">=1 <1.4.0",
+    "jquery": "~2.1.3"
+  }
 }
