@@ -1,5 +1,7 @@
 # AngularJS - Angular Egg (ngEgg)
 
+[![Build Status](https://travis-ci.org/scriptwerx/angular-egg.svg)](https://travis-ci.org/scriptwerx/angular-egg)
+
 Angular Egg by [Scriptwerx](http://www.scriptwerx.io) is an AngularJS Directive implementation of [egg.js](https://github.com/mikeflynn/egg.js) by Mike Flynn.
 
 ## Description

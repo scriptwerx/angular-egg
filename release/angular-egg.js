@@ -1,8 +1,8 @@
 /**
  * angular-egg - An AngularJS Directive implementation of egg.js by Mike Flynn
  * @author Paul Massey, paul.massey@scriptwerx.io
- * @version v0.0.2
- * @build 17 - Mon Apr 27 2015 16:18:48 GMT+0100 (BST)
+ * @version v0.0.3
+ * @build 18 - Mon Apr 27 2015 20:21:00 GMT+0100 (BST)
  * @link http://www.scriptwerx.io
  * @license https://github.com/scriptwerx/ngEgg/blob/master/LICENSE
  */
@@ -35,7 +35,7 @@
   'use strict';
 
   // Default (Konami) keycode
-  var defaultEgg = 'up,up,down,down,left,right,left,right,b,a',
+  var defaultEgg = '38,up,40,down,left,right,left,right,b,a',
     ignoredKeys = [16];
 
   /**
@@ -61,7 +61,7 @@
 
     var characterKeyCodes = keys.map(function(key) {
 
-      if (key === parseInt(key, 10)) {
+      if (!isNaN(parseInt(key, 10))) {
         return key;
       }
 
@@ -148,6 +148,21 @@
             scope.$apply(function() {
               ngModelCtrl.$setViewValue(true);
             });
+          }
+          else if (kps.length > 10) {
+
+            var currentKeys = kps.toString(),
+              firstEggKey = activeEgg.split(',')[0];
+
+            if (!firstEggKey || currentKeys.indexOf(firstEggKey) === -1) {
+              kps = [];
+            }
+            else {
+              currentKeys = currentKeys.substr(currentKeys.indexOf(firstEggKey));
+              if (currentKeys.length > activeEgg.length) {
+                kps = [];
+              }
+            }
           }
         }
       }

@@ -27,7 +27,7 @@
   'use strict';
 
   // Default (Konami) keycode
-  var defaultEgg = 'up,up,down,down,left,right,left,right,b,a',
+  var defaultEgg = '38,up,40,down,left,right,left,right,b,a',
     ignoredKeys = [16];
 
   /**
@@ -53,7 +53,7 @@
 
     var characterKeyCodes = keys.map(function(key) {
 
-      if (key === parseInt(key, 10)) {
+      if (!isNaN(parseInt(key, 10))) {
         return key;
       }
 
@@ -140,6 +140,21 @@
             scope.$apply(function() {
               ngModelCtrl.$setViewValue(true);
             });
+          }
+          else if (kps.length > 10) {
+
+            var currentKeys = kps.toString(),
+              firstEggKey = activeEgg.split(',')[0];
+
+            if (!firstEggKey || currentKeys.indexOf(firstEggKey) === -1) {
+              kps = [];
+            }
+            else {
+              currentKeys = currentKeys.substr(currentKeys.indexOf(firstEggKey));
+              if (currentKeys.length > activeEgg.length) {
+                kps = [];
+              }
+            }
           }
         }
       }
