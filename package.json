@@ -11,7 +11,7 @@
 	"homepage": "http://www.scriptwerx.io",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/scriptwerx/ngEgg"
+		"url": "https://github.com/scriptwerx/angular-egg"
 	},
 	"keywords": [
 		"ngEgg",
