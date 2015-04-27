@@ -1,11 +1,12 @@
 {
-	"name": "ngEgg",
+	"name": "angular-egg",
 	"version": "0.0.1",
 	"authors": [
 		"Paul Massey, paul.massey@scriptwerx.io, http://www.scriptwerx.io"
 	],
 	"description": "An AngularJS Directive implementation of egg.js by Mike Flynn",
 	"keywords": [
+        "Angular Egg",
 		"ngEgg",
 		"AngularJS",
 		"Angular",
