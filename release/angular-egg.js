@@ -1,8 +1,8 @@
 /**
  * angular-egg - An AngularJS Directive implementation of egg.js by Mike Flynn
  * @author Paul Massey, paul.massey@scriptwerx.io
- * @version v0.0.1
- * @build 16 - Mon Apr 27 2015 12:26:10 GMT+0100 (BST)
+ * @version v0.0.2
+ * @build 17 - Mon Apr 27 2015 16:18:48 GMT+0100 (BST)
  * @link http://www.scriptwerx.io
  * @license https://github.com/scriptwerx/ngEgg/blob/master/LICENSE
  */
@@ -36,9 +36,7 @@
 
   // Default (Konami) keycode
   var defaultEgg = 'up,up,down,down,left,right,left,right,b,a',
-    ignoredKeys = [16],
-    kps = [],
-    activeEgg;
+    ignoredKeys = [16];
 
   /**
    * @private
@@ -88,6 +86,9 @@
    * @returns {Object} Directive Object
    */
   function ngEgg($document) {
+
+    var kps = [],
+      activeEgg;
 
     /**
     * @private

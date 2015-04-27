@@ -28,9 +28,7 @@
 
   // Default (Konami) keycode
   var defaultEgg = 'up,up,down,down,left,right,left,right,b,a',
-    ignoredKeys = [16],
-    kps = [],
-    activeEgg;
+    ignoredKeys = [16];
 
   /**
    * @private
@@ -80,6 +78,9 @@
    * @returns {Object} Directive Object
    */
   function ngEgg($document) {
+
+    var kps = [],
+      activeEgg;
 
     /**
     * @private
