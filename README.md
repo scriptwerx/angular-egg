@@ -55,3 +55,26 @@ You need to pass the character sequence as a comma-delimited String.
 We’re making use of *ngModel* in our directive to include a simple *true/false* switch that can be useful within your app to determine when/if the egg is activated.
 
 **N.B. Angular Egg will automatically hide itself and set the value switch via *ngModel* to false.**
+
+## Controller as
+
+As our code is designed with using the "controller as" way of writing AngularJS apps - *vm* is referring to our controller.
+
+Todd Motto did a great writeup on the “controller as” syntax:
+[http://toddmotto.com/digging-into-angulars-controller-as-syntax/](http://toddmotto.com/digging-into-angulars-controller-as-syntax/)
+
+As a basic example:
+
+	<section data-ng-controller="MyController as vm">
+		<!-- EASTER EGG -->
+		<section data-ng-egg data-ng-model="vm.eggActivated">
+			YOU FOUND THE EGG!
+		</section>
+	
+		<!-- ACTUAL CONTENT (hidden when egg is activated) -->
+		<section data-ng-if="!vm.eggActivated">
+			WELCOME TO MY APP
+		</section>
+	</section>
+
+We'll create a fully working demo as soon as possible and update the build.
