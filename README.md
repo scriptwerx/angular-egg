@@ -1,8 +1,8 @@
 # AngularJS - Angular Egg (ngEgg)
 
-[![Build Status](https://travis-ci.org/scriptwerx/angular-egg.svg)](https://travis-ci.org/scriptwerx/angular-egg)
+[![Build Status][image-1]][1]
 
-Angular Egg by [Scriptwerx](http://www.scriptwerx.io) is an AngularJS Directive implementation of [egg.js](https://github.com/mikeflynn/egg.js) by Mike Flynn.
+Angular Egg by [Scriptwerx][2] is an AngularJS Directive implementation of [egg.js][3] by Mike Flynn.
 
 ## Description
 
@@ -18,7 +18,7 @@ Angular Egg is packaged as a bower component; to install use:
 
 	bower install angular-egg
 
-You can of course; download the directive from the [git repository](https://github.com/scriptwerx/angular-egg).
+You can of course; download the directive from the [git repository][4].
 
 ## Usage
 
@@ -35,19 +35,19 @@ Now that *ngEgg* is available within your application; you can make use of it wi
 
 	<!-- EASTER EGG -->
 	<section data-ng-egg data-ng-model="vm.eggActivated">
-		YOU FOUND THE EGG!
+	    YOU FOUND THE EGG!
 	</section>
 	
 	<!-- ACTUAL CONTENT (hidden when egg is activated) -->
 	<section data-ng-if="!vm.eggActivated">
-		WELCOME TO MY APP
+	    WELCOME TO MY APP
 	</section>
 
 You can change the custom keystrokes required to activate the Easter Egg by including the *keycode* attribute within your DOM element:
 
 	<!-- EASTER EGG -->
 	<section data-ng-egg data-keycode="up,up,down,down" data-ng-model="vm.eggActivated">
-		YOU FOUND THE EGG!
+	    YOU FOUND THE EGG!
 	</section>
 
 You need to pass the character sequence as a comma-delimited String.
@@ -61,20 +61,28 @@ We’re making use of *ngModel* in our directive to include a simple *true/false
 As our code is designed with using the "controller as" way of writing AngularJS apps - *vm* is referring to our controller.
 
 Todd Motto did a great writeup on the “controller as” syntax:
-[http://toddmotto.com/digging-into-angulars-controller-as-syntax/](http://toddmotto.com/digging-into-angulars-controller-as-syntax/)
+[http://toddmotto.com/digging-into-angulars-controller-as-syntax/][5]
 
 As a basic example:
 
 	<section data-ng-controller="MyController as vm">
-		<!-- EASTER EGG -->
-		<section data-ng-egg data-ng-model="vm.eggActivated">
-			YOU FOUND THE EGG!
-		</section>
+	    <!-- EASTER EGG -->
+	    <section data-ng-egg data-ng-model="vm.eggActivated">
+	        YOU FOUND THE EGG!
+	    </section>
 	
-		<!-- ACTUAL CONTENT (hidden when egg is activated) -->
-		<section data-ng-if="!vm.eggActivated">
-			WELCOME TO MY APP
-		</section>
+	    <!-- ACTUAL CONTENT (hidden when egg is activated) -->
+	    <section data-ng-if="!vm.eggActivated">
+	        WELCOME TO MY APP
+	    </section>
 	</section>
 
 We'll create a fully working demo as soon as possible and update the build.
+
+[1]:	https://travis-ci.org/scriptwerx/angular-egg
+[2]:	http://www.scriptwerx.io
+[3]:	https://github.com/mikeflynn/egg.js
+[4]:	https://github.com/scriptwerx/angular-egg
+[5]:	http://toddmotto.com/digging-into-angulars-controller-as-syntax/
+
+[image-1]:	https://travis-ci.org/scriptwerx/angular-egg.svg

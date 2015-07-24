@@ -1,8 +1,8 @@
 /**
  * angular-egg - An AngularJS Directive implementation of egg.js by Mike Flynn
  * @author Paul Massey, paul.massey@scriptwerx.io
- * @version v0.0.3
- * @build 18 - Mon Apr 27 2015 20:21:00 GMT+0100 (BST)
+ * @version v0.0.4
+ * @build 20 - Fri Jul 24 2015 10:09:15 GMT+0100 (BST)
  * @link http://www.scriptwerx.io
  * @license https://github.com/scriptwerx/ngEgg/blob/master/LICENSE
  */
@@ -185,7 +185,6 @@
       link: link
     };
   }
-  
   ngEgg.$inject = ['$document'];
 
   angular
