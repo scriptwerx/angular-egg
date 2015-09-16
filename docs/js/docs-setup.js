@@ -22,8 +22,7 @@ NG_DOCS={
     "scripts": [
       "js/angular.min.js",
       "js/angular-animate.min.js",
-      "js/marked.js",
-      "js/prettify.js"
+      "js/marked.js"
     ],
     "styles": [],
     "title": "angular-egg",
@@ -37,17 +36,15 @@ NG_DOCS={
     "loadDefaults": {
       "angular": true,
       "angularAnimate": true,
-      "marked": true,
-      "prettify": true
+      "marked": true
     }
   },
   "html5Mode": true,
   "editExample": true,
   "startPage": "/api",
   "scripts": [
-    "angular.min.js",
-    "angular-animate.min.js",
-    "marked.js",
-    "prettify.js"
+    "js/angular.min.js",
+    "js/angular-animate.min.js",
+    "js/marked.js"
   ]
 };

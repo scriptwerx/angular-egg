@@ -190,14 +190,13 @@ gulp.task('annotate:js', function () {
  Minify/uglify the JavaScript
  */
 gulp.task('uglify:js', function() {
-  return gulp.src(['./release/' + basePkg.name + '.js'])
-    .pipe(plugins.uglifyjs(basePkg.name + '.min.js', {
-      outSourceMap: true,
-      basePath: '/release',
-      sourceRoot: '/'
-    }))
-    .pipe(gulp.dest('./release'))
-    .on('error', getErrorHandler());
+    return gulp.src(['./release/' + basePkg.name + '.js'])
+        .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.uglify())
+        .pipe(plugins.rename(basePkg.name + '.min.js'))
+        .pipe(plugins.sourcemaps.write('.'))
+        .pipe(gulp.dest('./release'))
+        .on('error', getErrorHandler());
 });
 
 /*
