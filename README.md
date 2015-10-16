@@ -81,12 +81,15 @@ As a basic example:
 	    </section>
 	</section>
 
-We'll create a fully working demo as soon as possible and update the build.
+## Demo
+
+Please see the [Demo][6] on jsfiddle for more information.
 
 [1]:	https://travis-ci.org/scriptwerx/angular-egg
 [2]:	http://www.scriptwerx.io
 [3]:	https://github.com/mikeflynn/egg.js
 [4]:	https://github.com/scriptwerx/angular-egg
 [5]:	http://toddmotto.com/digging-into-angulars-controller-as-syntax/
+[6]: 	http://jsfiddle.net/scriptwerx/m24nfpjr/
 
 [image-1]:	https://travis-ci.org/scriptwerx/angular-egg.svg
