@@ -14,7 +14,11 @@ Angular Egg depends on *angular.js*, and is tested on version 1.3.14.
 
 ## Installation
 
-Angular Egg is packaged as a bower component; to install use:
+Node Package Manager:
+
+	npm install angular-egg --save-dev
+
+Bower:
 
 	bower install angular-egg
 
