@@ -18,7 +18,7 @@ Node Package Manager:
 
 	npm install angular-egg --save-dev
 
-Bower:
+Bower, but please see: [Why we should stop using Bower - and how to do it](https://gofore.com/ohjelmistokehitys/stop-using-bower/ "Why We Should Stop Using Bower – And How to Do It").
 
 	bower install angular-egg
 

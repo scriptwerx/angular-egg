@@ -79,21 +79,23 @@ gulp.task('lint:js', function() {
 /*
  Test the JavaScript.
  */
-gulp.task('test:js', function() {
+gulp.task('test:js', function(cb) {
+    
+    var Server = require('karma').Server,
+        src = [
+            './bower_components/jquery/dist/jquery.js',
+            './bower_components/angular/angular.js',
+            './bower_components/angular-mocks/angular-mocks.js',
+            './src/js/**/*.js'
+          ];
 
-  var src = [
-    './bower_components/jquery/dist/jquery.js',
-    './bower_components/angular/angular.js',
-    './bower_components/angular-mocks/angular-mocks.js',
-    './src/js/**/*.js'
-  ];
-
-  return gulp.src(src)
-    .pipe(plugins.karma({
-      configFile: './test/config/karma.conf.js',
-      action: 'run'
-    }))
-    .on('error', getErrorHandler());
+    
+    new Server({
+        files     : src,
+        configFile: __dirname + '/test/config/karma.conf.js',
+        singleRun : true
+    }, cb).start();
+    
 });
 
 //===============================================
