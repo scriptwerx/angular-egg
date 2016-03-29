@@ -2,7 +2,6 @@
 var fs = require('fs'),
   gulp = require('gulp'),
   sh = require('shelljs'),
-  bower = require('bower'),
   del = require('del'),
   vinylPaths = require('vinyl-paths'),
   runSequence = require('run-sequence'),
@@ -24,20 +23,6 @@ gulp.task('check:git', function(done) {
     process.exit(1);
   }
   done();
-});
-
-gulp.task('prune:bower', function() {
-  return bower.commands.prune()
-    .on('log', function(data) {
-      plugins.util.log('bower', plugins.util.colors.cyan(data.id), data.message);
-    });
-});
-
-gulp.task('install:bower', function() {
-  return bower.commands.install()
-    .on('log', function(data) {
-      plugins.util.log('bower', plugins.util.colors.cyan(data.id), data.message);
-    });
 });
 
 //===============================================
@@ -83,9 +68,8 @@ gulp.task('test:js', function(cb) {
     
     var Server = require('karma').Server,
         src = [
-            './bower_components/jquery/dist/jquery.js',
-            './bower_components/angular/angular.js',
-            './bower_components/angular-mocks/angular-mocks.js',
+            './node_modules/angular/angular.js',
+            './node_modules/angular-mocks/angular-mocks.js',
             './src/js/**/*.js'
           ];
 
@@ -131,7 +115,7 @@ gulp.task('doc:js', [], function () {
  Bump the version
  */
 function bump(type) {
-  return gulp.src(['./package.json'])
+  return gulp.src(['./package.json', './bower.json'])
     .pipe(plugins.bump({ type: type }))
     .pipe(gulp.dest('./'))
     .on('error', getErrorHandler());
@@ -230,8 +214,6 @@ gulp.task('header:js', function() {
 function generateBuild(bump, cb) {
   runSequence(
     'check:git',
-    'prune:bower',
-    'install:bower',
     'lint:js',
     'test:js',
     'clean:before',
