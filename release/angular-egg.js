@@ -1,8 +1,8 @@
 /**
  * angular-egg - An AngularJS Directive implementation of egg.js by Mike Flynn
  * @author Paul Massey, paul.massey@scriptwerx.io
- * @version v0.0.6
- * @build 25 - Tue Nov 10 2015 12:33:33 GMT+0000 (GMT)
+ * @version v1.0.0
+ * @build 41 - Tue Mar 29 2016 09:07:33 GMT+0100 (BST)
  * @link http://www.scriptwerx.io
  * @license MIT
  */
@@ -105,7 +105,6 @@
     function link(scope, elem, attrs, ngModelCtrl) {
 
       ngModelCtrl.$setViewValue(false);
-      elem.css('display', 'none');
 
       /**
        * @private
@@ -144,7 +143,6 @@
 
           if (foundEgg) {
             kps = [];
-            elem.css('display', 'block');
             scope.$apply(function() {
               ngModelCtrl.$setViewValue(true);
             });

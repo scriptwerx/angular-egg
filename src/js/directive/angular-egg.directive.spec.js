@@ -1,86 +1,80 @@
-describe('angular-egg', function() {
+describe('angular-egg', function () {
 
-  'use strict';
+    'use strict';
 
-  var suite = this,
-    keyCode = [38,38,40,40,37,39,37,39,66,65];
+    var suite = this,
+        keyCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
 
-  function triggerKeyCode(keyCode) {
+    function triggerKeyCode(keyCode) {
+        var event = document.createEvent('Event');
+        event.which = keyCode;
+        event.initEvent('keyup');
+        document.dispatchEvent(event);
+    }
 
-    e = $.Event('keydown');
-    e.which = keyCode;
-    suite.document.trigger(e);
+    beforeEach(module('ngEgg'));
 
-    var e = $.Event('keyup');
-    e.which = keyCode;
-    suite.document.trigger(e);
-  }
+    beforeEach(inject(function ($injector) {
+        suite.compile = $injector.get('$compile');
+        suite.scope = $injector.get('$rootScope').$new();
+        suite.document = $injector.get('$document');
+        suite.scope.vm = {};
+    }));
 
-  beforeEach(module('ngEgg'));
+    describe('with default keycode', function () {
 
-  beforeEach(inject(function($injector) {
-    suite.compile = $injector.get('$compile');
-    suite.scope = $injector.get('$rootScope').$new();
-    suite.document = $injector.get('$document');
-  }));
+        beforeEach(function () {
+            suite.scope.vm.eggActivated = false;
+            suite.element = suite.compile(angular.element('<section data-ng-egg data-ng-model="vm.eggActivated" data-ng-class="{ \'hidden\': vm.eggActivated }">'))(suite.scope);
+            suite.scope.$digest();
+        });
 
-  describe('with default keycode', function() {
+        it('should activate the Easter Egg upon correct default key sequence', function () {
 
-    beforeEach(function() {
-      suite.scope.eggActivated = false;
-      suite.element = suite.compile(angular.element('<section data-ng-egg data-ng-model="eggActivated">'))(suite.scope);
-      suite.scope.$digest();
+            angular.forEach(keyCode, function (key) {
+                triggerKeyCode(key);
+            });
+
+            suite.scope.$digest();
+            expect(suite.scope.vm.eggActivated).toBeTrue();
+            expect(suite.element.hasClass('hidden')).toBeTrue();
+        });
+
+        it('should NOT activate the Easter Egg upon incorrect key sequence', function () {
+
+            angular.forEach(keyCode, function (key) {
+                triggerKeyCode(key);
+                triggerKeyCode(20);
+            });
+
+            suite.scope.$digest();
+            expect(suite.scope.vm.eggActivated).toBeFalse();
+            expect(suite.element.hasClass('hidden')).toBeFalse();
+        });
+
     });
 
-    it('should activate the Easter Egg upon correct default key sequence', function() {
+    describe('with custom keycode', function () {
 
-      expect(suite.element.css('display')).toBe('none');
+        beforeEach(function () {
+            suite.scope.vm.eggActivated = false;
+            suite.element = suite.compile(angular.element('<section data-ng-egg data-ng-model="vm.eggActivated" data-keycode="up,down,up,down" data-ng-class="{ \'hidden\': vm.eggActivated }">'))(suite.scope);
+            suite.scope.$digest();
+        });
 
-      angular.forEach(keyCode, function(key) {
-        triggerKeyCode(key);
-      });
+        it('should use the specified custom key sequence', function () {
 
-      suite.scope.$digest();
-      expect(suite.element.css('display')).toBe('block');
+            var customKeyCode = [38, 40, 38, 40];
+
+            angular.forEach(customKeyCode, function (key) {
+                triggerKeyCode(key);
+            });
+
+            suite.scope.$digest();
+            expect(suite.scope.vm.eggActivated).toBeTrue();
+            expect(suite.element.hasClass('hidden')).toBeTrue();
+        });
+
     });
-
-    it('should NOT activate the Easter Egg upon incorrect key sequence', function() {
-
-      expect(suite.element.css('display')).toBe('none');
-
-      angular.forEach(keyCode, function(key) {
-        triggerKeyCode(key);
-        triggerKeyCode(20);
-      });
-
-      suite.scope.$digest();
-      expect(suite.element.css('display')).toBe('none');
-    });
-
-  });
-
-  describe('with custom keycode', function() {
-
-    beforeEach(function() {
-      suite.scope.eggActivated = false;
-      suite.element = suite.compile(angular.element('<section data-ng-egg data-ng-model="eggActivated" data-keycode="up,down,up,down">'))(suite.scope);
-      suite.scope.$digest();
-    });
-
-    it('should use the specified custom key sequence', function() {
-
-      var customKeyCode = [38,40,38,40];
-
-      expect(suite.element.css('display')).toBe('none');
-
-      angular.forEach(customKeyCode, function(key) {
-        triggerKeyCode(key);
-      });
-
-      suite.scope.$digest();
-      expect(suite.element.css('display')).toBe('block');
-    });
-
-  });
 
 });

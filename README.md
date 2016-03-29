@@ -37,8 +37,14 @@ Simply add the Angular Egg asset to your project and include it in your HTML or 
 
 Now that *ngEgg* is available within your application; you can make use of it within your DOM as follows:
 
+    <style type="text/css">
+        .hidden {
+            display: none;
+        }
+    </style>
+
 	<!-- EASTER EGG -->
-	<section data-ng-egg data-ng-model="vm.eggActivated">
+	<section data-ng-egg data-ng-model="vm.eggActivated" data-ng-class="{ 'hidden': !vm.eggActivated }">
 	    YOU FOUND THE EGG!
 	</section>
 	
@@ -50,7 +56,7 @@ Now that *ngEgg* is available within your application; you can make use of it wi
 You can change the custom keystrokes required to activate the Easter Egg by including the *keycode* attribute within your DOM element:
 
 	<!-- EASTER EGG -->
-	<section data-ng-egg data-keycode="up,up,down,down" data-ng-model="vm.eggActivated">
+	<section data-ng-egg data-keycode="up,up,down,down" data-ng-model="vm.eggActivated" data-ng-class="{ 'hidden': !vm.eggActivated }">
 	    YOU FOUND THE EGG!
 	</section>
 
@@ -69,9 +75,15 @@ Todd Motto did a great writeup on the “controller as” syntax:
 
 As a basic example:
 
+    <style type="text/css">
+        .hidden {
+            display: none;
+        }
+    </style>
+
 	<section data-ng-controller="MyController as vm">
 	    <!-- EASTER EGG -->
-	    <section data-ng-egg data-ng-model="vm.eggActivated">
+	    <section data-ng-egg data-ng-model="vm.eggActivated" data-ng-class="{ 'hidden': !vm.eggActivated }">
 	        YOU FOUND THE EGG!
 	    </section>
 	

@@ -97,7 +97,6 @@
     function link(scope, elem, attrs, ngModelCtrl) {
 
       ngModelCtrl.$setViewValue(false);
-      elem.css('display', 'none');
 
       /**
        * @private
@@ -136,7 +135,6 @@
 
           if (foundEgg) {
             kps = [];
-            elem.css('display', 'block');
             scope.$apply(function() {
               ngModelCtrl.$setViewValue(true);
             });
