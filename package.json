@@ -3,9 +3,9 @@
 	"organisation": "Scriptwerx",
 	"name": "angular-egg",
 	"description": "An AngularJS Directive implementation of egg.js by Mike Flynn",
-	"version": "1.0.0",
-	"build": 41,
-	"timestamp": 1459238853653,
+	"version": "1.0.1",
+	"build": 49,
+	"timestamp": 1459239544647,
 	"copyright": "Scriptwerx 2016",
 	"license": "MIT",
 	"homepage": "http://www.scriptwerx.io",
@@ -26,6 +26,8 @@
 		"Genoveus"
 	],
 	"devDependencies": {
+		"angular": "^1.5.3",
+		"angular-mocks": "^1.5.3",
 		"bower": "^1.7.7",
 		"coveralls": "^2.11.9",
 		"del": "^2.2.0",
