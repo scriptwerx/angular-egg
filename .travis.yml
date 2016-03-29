@@ -1,8 +1,7 @@
 language: node_js
 node_js:
-  - "4.2.2"
-  - "4.0"
-  - "0.12"
+  - "5.9.1"
+  - "4.4.1"
 before_script:
   - npm install -g gulp
 script: gulp patch

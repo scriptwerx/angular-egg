@@ -1,6 +1,6 @@
 {
   "name": "angular-egg",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "authors": [
     "Paul Massey, paul.massey@scriptwerx.io, http://www.scriptwerx.io"
   ],
@@ -40,10 +40,9 @@
     "./release/angular-egg.min.js"
   ],
   "dependencies": {
-    "angular": ">=1 <1.4.0"
+    "angular": ">=1 <=1.5.3"
   },
   "devDependencies": {
-    "angular-mocks": ">=1 <1.4.0",
-    "jquery": "~2.1.3"
+    "angular-mocks": ">=1 <=1.5.3"
   }
 }
