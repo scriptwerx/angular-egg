@@ -1,8 +1,8 @@
 /**
  * angular-egg - An AngularJS Directive implementation of egg.js by Mike Flynn
  * @author Paul Massey, paul.massey@scriptwerx.io
- * @version v1.0.0
- * @build 41 - Tue Mar 29 2016 09:07:33 GMT+0100 (BST)
+ * @version v1.0.1
+ * @build 49 - Tue Mar 29 2016 09:19:04 GMT+0100 (BST)
  * @link http://www.scriptwerx.io
  * @license MIT
  */
